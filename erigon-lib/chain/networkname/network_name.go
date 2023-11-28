@@ -1,6 +1,7 @@
 package networkname
 
 const (
+	BSCChainName            = "bsc"
 	MainnetChainName        = "mainnet"
 	HoleskyChainName        = "holesky"
 	SepoliaChainName        = "sepolia"

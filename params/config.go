@@ -50,6 +50,7 @@ func readChainSpec(filename string) *chain.Config {
 
 // Genesis hashes to enforce below configs on.
 var (
+	BSCGenesisHash        = libcommon.HexToHash("0x0d21840abff46b96c84b2ac9e10e4f5cdaeb5693cb665db62a2f3b02d2d57b5b")
 	MainnetGenesisHash    = libcommon.HexToHash("0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3")
 	HoleskyGenesisHash    = libcommon.HexToHash("0xb5f7f912443c940f21fd611f12828d75b534364ed9e95ca4e307729a4661bde4")
 	SepoliaGenesisHash    = libcommon.HexToHash("0x25a5cc106eea7138acab33231d7160d69cb777ee0c2c553fcddf5138993e6dd9")
@@ -130,6 +131,8 @@ var (
 	GnosisChainConfig = readChainSpec("chainspecs/gnosis.json")
 
 	ChiadoChainConfig = readChainSpec("chainspecs/chiado.json")
+
+	BSCChainConfig = readChainSpec("chainspecs/bsc.json")
 
 	CliqueSnapshot = NewSnapshotConfig(10, 1024, 16384, true, "")
 
@@ -220,6 +223,8 @@ func ChainConfigByChainName(chain string) *chain.Config {
 
 func GenesisHashByChainName(chain string) *libcommon.Hash {
 	switch chain {
+	case networkname.BSCChainName:
+		return &BSCGenesisHash
 	case networkname.MainnetChainName:
 		return &MainnetGenesisHash
 	case networkname.HoleskyChainName:
